@@ -6,8 +6,8 @@
     "dev": "parcel demo/index.html --port 5300",
     "build": "parcel build demo/index.html --public-url ./ --no-source-maps"
   },
-  "repository": "git@github.com:jarvisniu/vue-image-marker.git",
-  "author": "Jarvis Niu <jarvisniu@gmail.com>",
+  "repository": "git@github.com:maxzxa/vue-image-marker.git",
+  "author": "Maximiliano Calderon <maxsounders21@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "lodash.debounce": "^4.0.8"
