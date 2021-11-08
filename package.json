@@ -1,6 +1,6 @@
 {
-  "name": "vue-image-marker",
-  "version": "0.1.4",
+  "name": "vue-image-marker-2",
+  "version": "1.0.0",
   "main": "src/vue-image-marker.vue",
   "scripts": {
     "dev": "parcel demo/index.html --port 5300",
