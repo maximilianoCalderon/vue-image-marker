@@ -7,9 +7,9 @@ Image container for adding icon marker to the image. (Dinamically! 😃)
 This project is based in https://github.com/jarvisniu/vue-image-marker by jarvisniu, i added some features like:
   * New component <VMarker> for adding dynamically markers inside the image.
   * 3 modes for <VImageMarke>
-    -> 0. None, this mode is only for previewing your image with marks.
-    -> 1. Set marker, you can set markers by clicking the map.
-    -> 2. Delete marker, you can delete a marker by clicking it.
+    - `0` None, this mode is only for previewing your image with marks.
+    - `1` Set marker, you can set markers by clicking the map.
+    - `2` Delete marker, you can delete a marker by clicking it.
   * We can create a marker with info a then retrieve it when click
 
 ## Demo
@@ -130,9 +130,9 @@ export default {
 - `src`: Url of the image where the markers overlaid on.
 - `padding`: Container padding, default is 0.
 - `mode`: Image marker's mode, the definition of each mode is
-    -> 0. None, this mode is only for previewing your image with marks.
-    -> 1. Set marker, you can set markers by clicking the map.
-    -> 2. Delete marker, you can delete a marker by clicking it.
+    - `0` None, this mode is only for previewing your image with marks.
+    - `1` Set marker, you can set markers by clicking the map.
+    - `2` Delete marker, you can delete a marker by clicking it.
   
 ### VueMarker Props
   
@@ -142,9 +142,9 @@ export default {
 - `y`: Marker's location in y axis.
 - `id`: Unique id for the marker
 - `mode`: Image marker's mode, the definition of each mode is
-    -> 0. None, this mode is only for previewing your image with marks.
-    -> 1. Set marker, you can set markers by clicking the map.
-    -> 2. Delete marker, you can delete a marker by clicking it.
+    - `0` None, this mode is only for previewing your image with marks.
+    - `1` Set marker, you can set markers by clicking the map.
+    - `2` Delete marker, you can delete a marker by clicking it.
 
 ## License
 
