@@ -1,47 +1,78 @@
 <template>
   <div>
-    <h3>Vue Image Marker Demo</h3>
-    <button @click="padding += 10">Padding +</button>
-    <button @click="urlImage = urlImage2">Change Image</button>
-    <v-image-marker
+    <h3>Vue Image Marker Demo 2.0</h3>
+    <button @click="padding += 10">+</button>
+    <button @click="padding -= 10">-</button>
+    <select name="" id="" v-model="mode">
+      <option v-for="mode in modes" :key="mode.value" :value="mode.value">
+        {{ mode.text }}
+      </option>
+    </select>
+    <VImageMarker
+      :mode="mode"
+      @setMarker="getMark"
       class="image-marker"
       :src="urlImage"
       :padding="padding"
     >
-      <div
+      <VMarker
+        :mode="mode"
+        @click="markerClicked"
         v-for="(marker, index) in markers"
         :key="index"
-        class="marker"
-        :style="{
-          left: `calc(${ (marker.x * 100) }% - 5px)`,
-          top: `calc(${ (marker.y * 100) }% - 5px)`,
-          backgroundColor: marker.color,
-        }"
-      ></div>
-    </v-image-marker>
+        :x="marker.x"
+        :y="marker.y"
+        :color="marker.color"
+        :id="marker.id"
+      ></VMarker>
+    </VImageMarker>
   </div>
 </template>
 
 <script>
-import urlImage1 from './map1.png'
-import urlImage2 from './map2.png'
+import urlImage from "./map.png";
+
+function s4() {
+  return Math.floor((1 + Math.random()) * 0x10000)
+    .toString(16)
+    .substring(1);
+}
+
+export function guid() {
+  return s4() + s4() + "-" + s4() + "-" + s4() + "-" + s4() + "-" + s4() + s4() + s4();
+}
 
 export default {
-  data () {
+  data() {
     return {
-      urlImage1,
-      urlImage2,
-      urlImage: urlImage1,
-      padding: 20,
-      markers: [
-        { x: 0, y: 0, color: 'pink' },
-        { x: 1, y: 0, color: 'lightblue' },
-        { x: 1, y: 1, color: 'lightgreen' },
-        { x: 0.5, y: 0.5, color: 'lightyellow' },
+      //Mode 1: Set Marker
+      //Mode 2: Delete marker
+      //Mode 0: None of them
+      mode: 1,
+      modes: [
+        { value: 0, text: "None" },
+        { value: 1, text: "Set Marker" },
+        { value: 2, text: "Delete Marker" },
       ],
-    }
+      urlImage: urlImage,
+      padding: 20,
+      markers: [],
+    };
   },
-}
+  methods: {
+    markerClicked(id) {
+      var index = this.markers.findIndex(function (marker) {
+        return marker.id == id;
+      });
+      if (index !== -1) {
+        this.markers.splice(index, 1);
+      }
+    },
+    getMark(data) {
+      this.markers.push({ color: "red", id: guid(), ...data });
+    },
+  },
+};
 </script>
 
 <style lang="stylus" scoped>
@@ -51,15 +82,4 @@ export default {
   border solid 1px silver
   user-select none
   background-color #f8f8f8
-
-.marker
-  position absolute
-  width 10px
-  height 10px
-  border-radius 6px
-  border solid 1px silver
-  cursor pointer
-  transition border-color 0.2s
-  &:hover
-    border-color black
 </style>
