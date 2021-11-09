@@ -1,6 +1,6 @@
 # vue-image-marker 2
 
-Image container for adding icon marker to the image. (Dinamically! 😃)
+Image container for adding icon marker to the image. (dynamically! 😃)
 
 ## New Features 😃
 
