@@ -12,6 +12,10 @@ This project is based in https://github.com/jarvisniu/vue-image-marker by jarvis
     - `2` Delete marker, you can delete a marker by clicking it.
   * We can create a marker with info a then retrieve it when click
 
+## npm
+ 
+ https://www.npmjs.com/package/vue-image-marker-2
+ 
 ## Demo
   
   * New demo for vue image maker 2
