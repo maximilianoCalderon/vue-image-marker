@@ -1,5 +1,5 @@
 <template>
-  <div class="image-marker">
+  <div :style="imageMarkerStyle" class="image-marker">
     <img id="myImgId" :src="src" :style="posStyle" class="image" @load="onImageLoad" />
     <div @click="setMarker" :style="posStyle" class="mark-container">
       <slot />
@@ -28,6 +28,8 @@ export default {
   props: {
     src: { type: String, required: true },
     padding: { type: Number, default: 0 },
+    internalWidth: { type: Number, default: 200 },
+    internalHeight: { type: Number, default: 500 },
     mode: { type: Number, default: 0 },
   },
   data() {
@@ -43,6 +45,21 @@ export default {
     };
   },
   computed: {
+    imageMarkerStyle() {
+      if (this.padding != 0) {
+        return {
+          position: "relative",
+          minWidth: this.width + 25 + "px",
+          minHeight: this.height + 25 + "px",
+        };
+      } else {
+        return {
+          position: "relative",
+          minWidth: this.internalWidth + "px",
+          minHeight: this.internalHeight + "px",
+        };
+      }
+    },
     posStyle() {
       return {
         left: this.left + "px",
@@ -117,11 +134,6 @@ export default {
 </script>
 
 <style lang="css" scoped>
-.image-marker {
-  position: relative;
-  min-width: 200px;
-  min-height: 200px;
-}
 .image {
   position: absolute;
 }

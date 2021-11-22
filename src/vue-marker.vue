@@ -65,7 +65,7 @@ export default {
       if (this.mode == 2) {
         this.$emit("click", this.id);
       } else if (this.mode == 0) {
-        this.$emit("view", this.info);
+        this.$emit("view", this.id);
       }
     },
   },
