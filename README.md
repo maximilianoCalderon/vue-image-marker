@@ -32,11 +32,8 @@ npm i vue-image-marker-2
 Import:
 ```js
 import Vue from 'vue'
-import VueImageMarker from 'vue-image-marker'
-import VueMarker from '../src/vue-marker.vue'
-
-Vue.component('VImageMarker', VueImageMarker)
-Vue.component('VMarker', VueMarker)
+import vImageMarker2 from 'vue-image-marker-2'
+Vue.use(vImageMarker2)
 
 ```
 
@@ -51,14 +48,14 @@ Use:
         {{ mode.text }}
       </option>
     </select>
-    <VImageMarker
+    <v-image-marker
       :mode="mode"
       @setMarker="getMark"
       class="image-marker"
       :src="urlImage"
       :padding="padding"
     >
-      <VMarker
+      <v-marker
         :mode="mode"
         @click="markerClicked"
         v-for="(marker, index) in markers"
@@ -67,8 +64,8 @@ Use:
         :y="marker.y"
         :color="marker.color"
         :id="marker.id"
-      ></VMarker>
-    </VImageMarker>
+      ></v-marker>
+    </v-image-marker>
   </div>
 ```
   
