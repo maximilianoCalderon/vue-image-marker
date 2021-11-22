@@ -1,6 +1,9 @@
 <template>
   <div
     @click="clicked"
+    @mouseover="hover = true"
+    @mouseleave="hover = false"
+    @contextmenu="right"
     class="marker"
     :style="{
       left: `calc(${x * 100}% - 5px)`,
@@ -42,7 +45,22 @@ export default {
       required: true,
     },
   },
+  watch: {
+    hover(newValue, oldValue) {
+      if (newValue) {
+        this.$emit("hoverin", this.id);
+      }
+      if (!newValue && oldValue) {
+        this.$emit("hoverout", this.id);
+      }
+    },
+  },
   methods: {
+    right(e) {
+      //do stuff
+      e.preventDefault();
+      this.$emit("rightclick", this.id);
+    },
     clicked() {
       if (this.mode == 2) {
         this.$emit("click", this.id);
