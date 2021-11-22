@@ -54,8 +54,21 @@ export default {
 };
 </script>
 
-<style lang="stylus" scoped>
-.marker
+<style lang="css" scoped>
+.marker {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 6px;
+  border: solid 1px #000;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+.marker:hover {
+  border-color: #000;
+}
+
+/* .marker
   position absolute
   width 8px
   height 8px
@@ -64,5 +77,5 @@ export default {
   cursor pointer
   transition border-color 0.2s
   &:hover
-    border-color black
+    border-color black */
 </style>
